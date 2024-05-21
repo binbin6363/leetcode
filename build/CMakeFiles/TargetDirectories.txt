@@ -1,5 +1,0 @@
-/Users/politewang/workspace/opencode/mycode/build/CMakeFiles/edit_cache.dir
-/Users/politewang/workspace/opencode/mycode/build/CMakeFiles/rebuild_cache.dir
-/Users/politewang/workspace/opencode/mycode/build/btree/CMakeFiles/btree.dir
-/Users/politewang/workspace/opencode/mycode/build/btree/CMakeFiles/edit_cache.dir
-/Users/politewang/workspace/opencode/mycode/build/btree/CMakeFiles/rebuild_cache.dir
