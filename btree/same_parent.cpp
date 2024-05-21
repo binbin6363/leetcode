@@ -1,4 +1,5 @@
-
+#include <list>
+#include <vector>
 #include <iostream>
 
 // 236. 二叉树的最近公共祖先
@@ -14,6 +15,43 @@ struct TreeNode {
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+
+TreeNode *constructTree(std::vector<int> array) {
+    if (array.empty()) {
+        return nullptr;
+    }
+
+    int index = 0;
+    int length = array.size();
+
+    TreeNode *root = new TreeNode(array[0]);
+    std::list<TreeNode*> nodeQueue;
+    nodeQueue.push_back(root);
+    TreeNode *currNode = nullptr;
+    while (index < length) {
+        index++;
+        if (index >= length) {
+            return root;
+        }
+        currNode = nodeQueue.front();
+        int leftChild = array[index];
+        if (leftChild != -1) {
+            currNode->left = new TreeNode(leftChild);
+            nodeQueue.push_back(currNode->left);
+        }
+        index++;
+        if (index >= length) {
+            return root;
+        }
+        int rightChild = array[index];
+        if (rightChild != -1) {
+            currNode->right = new TreeNode(rightChild);
+            nodeQueue.push_back(currNode->right);
+        }
+    }
+
+    return root;
+}
 
 class Solution {
 public:
@@ -35,8 +73,13 @@ public:
     }
 };
 
+// g++ same_parent.cpp -std=c++11
 int main() {
+  std::vector<int> array = {3,5,1,6,2,0,8,-1,-1,7,4};
+  TreeNode* root = constructTree(array);
+  TreeNode* p = new TreeNode(5);
+  TreeNode* q = new TreeNode(4);
   Solution s;
-  s.lowestCommonAncestor();
+  s.lowestCommonAncestor(root, p, q);
   return 0;
 }
