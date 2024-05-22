@@ -1,6 +1,6 @@
 set(TARGET btree)
 
-file(GLOB sources *)
+file(GLOB sources turn_btree.cpp)
 file(GLOB utils ../utils/*)
 
 add_executable(${TARGET}
